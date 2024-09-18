@@ -1,0 +1,11 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  web:
+    build: .
+    image: Shan-barcha/firstcontainer:latest
+    container_name: Mycontainer
+    
+    ports:
+      - "8080:80"

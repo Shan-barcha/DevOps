@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  website-1:
+    build:
+      context: ./website1
+      dockerfile: Dockerfile
+    container_name: website-1
+    ports:
+      - "80:80"
+    deploy:
+      resources:
+        limits:
+          memory: 100M
+          cpus: '1.0'
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    restart: always
+
+  website-2:
+    build:
+      context: ./website2
+      dockerfile: Dockerfile
+    container_name: website-2
+    ports:
+      - "81:80"
+    deploy:
+      resources:
+        limits:
+          memory: 100M
+          cpus: '1.0'
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    restart: always
